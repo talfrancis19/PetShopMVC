@@ -1,9 +1,9 @@
 ﻿using FrancisPetShopMVC.Data.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace FrancisPetShopMVC.Services
+namespace FrancisPetShopMVC.Services.Interfaces
 {
-    public interface ICategoryService 
+    public interface ICategoryService
     {
         public Category GetCategoryById(int id);
         public IEnumerable<Category> GetAllCategories();

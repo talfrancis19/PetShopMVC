@@ -42,13 +42,25 @@
         </dd>
     </dl>
 </div>
+
+<div>
+    <h4>Add a Comment:</h4>
+    <div class="form-group">
+        <input type="text" id="commentInput" class="form-control" placeholder="Enter your comment">
+    </div>
+    <div style="height: 40px; padding-top:12px" class="form-group">
+        <button type="button" class="btn btn-primary" onclick="postComment()">Post Comment</button>
+    </div>
+</div>
+
 <div>
     <table class="table table-dark table-striped">
         <thead>
             <tr>
                 <th>Comments:</th>
-            </tr>
+            </tr>            
         </thead>
+        <br/>
         <tbody>
             @foreach (var comment in comments)
             {
@@ -59,35 +71,32 @@
         </tbody>
     </table>
 </div>
-
-<div>
-    <h4>Add a Comment:</h4>
-    <div class="form-group">
-        <input type="text" id="commentInput" class="form-control" placeholder="Enter your comment">
-    </div>
-    <div style="height: 40px; padding-top:12px" class="form-group">
-        <button type="button" class="btn btn-primary" id="postCommentButton">Post Comment</button>
-    </div>
-</div>
-
 @section Scripts {
     <script>
-        $(function () {
-            $('#postCommentButton').click(function () {
-                var commentText = $('#commentInput').val();
-                if (commentText) {
-                    $.post('/Comments/AddComment', { animalId: @Model.AnimalId, commentText: commentText })
-                        .done(function () {
-                            // Reload the page to update the comments
-                            location.reload();
-                        })
-                        .fail(function () {
-                            alert('Failed to add the comment. Please try again.');
-                        });
-                } else {
-                    alert('Please enter a comment.');
+        function postComment() {
+            var commentText = $('#commentInput').val();
+            var animalId = @Model.AnimalId; // Assuming you have the animal ID available in the view model
+
+            $.ajax({
+                url: '@Url.Action("AddComment", "Animals")',
+                type: 'POST',
+                data: { id: animalId, commentText: commentText },
+                success: function () {
+                    // Reload the page to display the updated comments
+                    location.reload();
+                },
+                error: function () {
+                    alert('An error occurred while adding the comment.');
                 }
             });
-        });
+        }
     </script>
 }
+
+
+
+
+
+
+
+

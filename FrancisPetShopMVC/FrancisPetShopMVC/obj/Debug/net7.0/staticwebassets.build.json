@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FqiCfID6nHcxs6RtO1rll2Qd6rkduIPvJGlwyVob2kg=",
+  "Hash": "9RsJ0HKSy11xjeesJntNDfKdwZzj/QZA6/FZvqPK5lM=",
   "Source": "FrancisPetShopMVC",
   "BasePath": "_content/FrancisPetShopMVC",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\8183a4bc-6ac2-41db-a201-1760559ac328_Computer-Nerd.jpg",
+      "SourceId": "FrancisPetShopMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\",
+      "BasePath": "_content/FrancisPetShopMVC",
+      "RelativePath": "Images/8183a4bc-6ac2-41db-a201-1760559ac328_Computer-Nerd.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\8183a4bc-6ac2-41db-a201-1760559ac328_Computer-Nerd.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\8eb713ca-a08a-4f91-9ab0-b933490e3191_Crocodial.jpg",
+      "SourceId": "FrancisPetShopMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\",
+      "BasePath": "_content/FrancisPetShopMVC",
+      "RelativePath": "Images/8eb713ca-a08a-4f91-9ab0-b933490e3191_Crocodial.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\8eb713ca-a08a-4f91-9ab0-b933490e3191_Crocodial.jpg"
     },
     {
       "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\bear.jpg",
@@ -185,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Dr.Curtis.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\e7940479-41dc-4502-9d7d-ac0eb3366386_gameOfThrones.png",
+      "SourceId": "FrancisPetShopMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\",
+      "BasePath": "_content/FrancisPetShopMVC",
+      "RelativePath": "Images/e7940479-41dc-4502-9d7d-ac0eb3366386_gameOfThrones.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\e7940479-41dc-4502-9d7d-ac0eb3366386_gameOfThrones.png"
     },
     {
       "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\fishKiss.jpg",

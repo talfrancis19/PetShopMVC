@@ -1,7 +1,7 @@
 ﻿using FrancisPetShopMVC.Data.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace FrancisPetShopMVC.Services
+namespace FrancisPetShopMVC.Services.Interfaces
 {
     public interface IAnimalService
     {
@@ -13,5 +13,5 @@ namespace FrancisPetShopMVC.Services
         Animal UpdateAnimal(Animal updatedAnimal);
 
 
-	}
+    }
 }

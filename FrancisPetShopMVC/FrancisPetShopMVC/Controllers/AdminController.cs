@@ -1,7 +1,8 @@
 ﻿using FrancisPetShopMVC.Data.Entities;
-using FrancisPetShopMVC.Services;
+using FrancisPetShopMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace FrancisPetShopMVC.Controllers
 {
@@ -10,12 +11,13 @@ namespace FrancisPetShopMVC.Controllers
         private readonly IAnimalService _animalService;
         private readonly ICategoryService _categoryService;
         private readonly ICommentService _commentService;
-        public AdminController(IAnimalService animalService, ICategoryService categoryService, ICommentService commentService)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public AdminController(IAnimalService animalService, ICategoryService categoryService, ICommentService commentService, IWebHostEnvironment webHostEnvironment)
         {
             _animalService = animalService;
             _categoryService = categoryService;
             _commentService = commentService;
-
+            _webHostEnvironment = webHostEnvironment;
         }
         // GET: AdminController
         [HttpGet]
@@ -36,89 +38,91 @@ namespace FrancisPetShopMVC.Controllers
         {
             return View();
         }
-
         [HttpPost]
         [Route("Admin/Login")]
         public ActionResult Login(string username, string password)
         {
             if (username == "admin" && password == "admin")
-            {                
+            {
                 return RedirectToAction("Index", "Admin");
             }
             else
-            {                
+            {
                 ViewBag.ErrorMessage = "Invalid username or password.";
                 return View();
             }
         }
-
         // GET: AdminController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
-
         // GET: AdminController/Create
         public ActionResult Create()
         {
             ViewBag.Categories = _categoryService.GetCategoryDropDownList();
             return View();
         }
-
         // POST: AdminController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Animal animal)
+
+        public IActionResult Create(Animal animal, IFormFile imageFile)
         {
-            _animalService.AddAnimal(animal);
-            if (ModelState.IsValid)
-            {
+            if (imageFile != null)
+            {                
+                string uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;                
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");               
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);              
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    imageFile.CopyTo(fileStream);
+                }                
+                animal.ImageFileName = uniqueFileName;
+                _animalService.AddAnimal(animal);
                 return RedirectToAction("Index");
             }
-
+            // If the model state is not valid, return the view with the validation errors
             ViewBag.Categories = _categoryService.GetCategoryDropDownList();
             return View(animal);
         }
-
         // GET: AdminController/Edit/5
         public ActionResult Edit(int id)
-		{
-			var animal = _animalService.GetAnimalById(id);			
-			ViewBag.Categories = _categoryService.GetCategoryDropDownList();
-			return View(animal);
-		}
-
-		// POST: AdminController/Edit/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Edit(Animal animal)
-		{
-			if (!ModelState.IsValid)
-			{
-				var updatedAnimal = _animalService.UpdateAnimal(animal);
-				if (updatedAnimal != null)
-				{
-					return RedirectToAction("Index");
-				}
-				else
-				{
-					ViewBag.ErrorMessage = "Failed to update the animal.";
-				}
-			}
-
-			ViewBag.Categories = _categoryService.GetCategoryDropDownList();
-			return View(animal);
-		}
-
-		// GET: AdminController/Delete/5
-		public IActionResult Delete(int id)
         {
-			var animal = _animalService.GetAnimalById(id);
-            var category = _categoryService.GetCategoryById(animal.CategoryId);           
-            ViewData["categoryName"] = category.Name;            
+            var animal = _animalService.GetAnimalById(id);
+            ViewBag.Categories = _categoryService.GetCategoryDropDownList();
             return View(animal);
         }
-
+        // POST: AdminController/Edit/5       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Animal animal, IFormFile imageFile)
+        {
+            ViewBag.Categories = _categoryService.GetCategoryDropDownList();
+            if (imageFile != null )
+            {
+                string uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    imageFile.CopyTo(fileStream);
+                }
+                // Set the ImageFileName property of the animal to the unique file name
+                animal.ImageFileName = uniqueFileName;
+                _animalService.UpdateAnimal(animal);
+                return RedirectToAction("Index");
+            }                       
+            return View(animal);
+        }
+        // GET: AdminController/Delete/5
+        public IActionResult Delete(int id)
+        {
+            var animal = _animalService.GetAnimalById(id);
+            var category = _categoryService.GetCategoryById(animal.CategoryId);
+            ViewData["categoryName"] = category.Name;
+            return View(animal);
+        }
         // POST: AdminController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -1,5 +1,6 @@
 ﻿using FirstMvc.Data;
 using FrancisPetShopMVC.Data.Entities;
+using FrancisPetShopMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;

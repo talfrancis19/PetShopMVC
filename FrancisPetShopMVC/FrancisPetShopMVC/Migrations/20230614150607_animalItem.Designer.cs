@@ -3,6 +3,7 @@ using FirstMvc.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FrancisPetShopMVC.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20230614150607_animalItem")]
+    partial class animalItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,8 +74,6 @@ namespace FrancisPetShopMVC.Migrations
 
                     b.HasKey("AnimalId");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Animals");
                 });
 
@@ -102,17 +103,6 @@ namespace FrancisPetShopMVC.Migrations
                         .IsRequired();
 
                     b.Navigation("AnimalItem");
-                });
-
-            modelBuilder.Entity("FrancisPetShopMVC.Data.Entities.Animal", b =>
-                {
-                    b.HasOne("FrancisPetShopMVC.Data.Entities.Category", "CategoryItem")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CategoryItem");
                 });
 
             modelBuilder.Entity("FrancisPetShopMVC.Data.Entities.Animal", b =>

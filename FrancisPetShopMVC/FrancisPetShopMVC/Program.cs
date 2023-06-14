@@ -4,20 +4,13 @@ using FrancisPetShopMVC.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Hosting;
+using FrancisPetShopMVC.Services.Interfaces;
 
 namespace FrancisPetShopMVC
 {
     public class Program
     {
-		public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-		{		
-			app.UseStaticFiles(new StaticFileOptions
-			{
-				FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Images")),
-				RequestPath = "/Images"
-			});		
-		}
-
+		
 		public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);

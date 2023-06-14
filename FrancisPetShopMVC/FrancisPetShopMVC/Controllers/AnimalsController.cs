@@ -1,7 +1,7 @@
 ﻿using FirstMvc.Data;
 using FrancisPetShopMVC.Data.Entities;
 using FrancisPetShopMVC.Models;
-using FrancisPetShopMVC.Services;
+using FrancisPetShopMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -54,7 +54,21 @@ namespace FrancisPetShopMVC.Controllers
             ViewData["Comments"] = comments;
             return View(animal);
         }
-       
+        [HttpPost]
+        public IActionResult AddComment(int id, string commentText)
+        {
+            var animal = _animalService.GetAnimalById(id);
+
+            if (animal == null)
+                return BadRequest($"No Animal with id = {id}");
+
+            _commentService.AddComment(animal.AnimalId,commentText);
+
+            // Save the changes to the database here (if using a database)
+
+            return Json(new { success = true });
+        }
+
         public IActionResult Create()
         {
             return View();

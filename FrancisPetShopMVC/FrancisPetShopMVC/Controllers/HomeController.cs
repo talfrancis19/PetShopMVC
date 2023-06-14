@@ -1,5 +1,5 @@
 ﻿using FrancisPetShopMVC.Models;
-using FrancisPetShopMVC.Services;
+using FrancisPetShopMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

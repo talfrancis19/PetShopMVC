@@ -1,4 +1,6 @@
 ﻿using FirstMvc.Data;
+using FrancisPetShopMVC.Data;
+using FrancisPetShopMVC.Services.Interfaces;
 
 namespace FrancisPetShopMVC.Services
 {
@@ -18,6 +20,31 @@ namespace FrancisPetShopMVC.Services
                 commentTexts.Add(comment.CommentText);
             }
             return commentTexts;
+        }
+        public Comment AddComment(int animalId, string commentText)
+        {
+            if (string.IsNullOrEmpty(commentText))
+            {
+                throw new ArgumentException("Comment text cannot be empty");
+            }
+
+            var animal = context.Animals.FirstOrDefault(a => a.AnimalId == animalId);
+            if (animal == null)
+            {
+                throw new ArgumentException($"Animal with ID {animalId} not found");
+            }
+
+            var newComment = new Comment
+            {
+                CommentText = commentText,
+                AnimalId = animalId, // Set the foreign key value
+                                     // Set other properties of the comment as needed
+            };
+
+            context.Comments.Add(newComment);
+            context.SaveChanges();
+
+            return newComment;
         }
     }
 
