@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+}
+<form action="/admin/login" method="post">
+    <h1 style="text-align:center">@ViewData["Title"]</h1>
+    <div style="text-align:center">
+        <div style="text-align:center">
+            <label>UserName:</label>
+            <input style="border-radius:10px" type="text" placeholder="Enter Username" name="username" required>
+        </div>
+        <br />
+        <div>
+            <label>Password : </label>
+            <input style="border-radius:10px;" type="password" placeholder="Enter Password" name="password" required>
+        </div>
+    </div>
+    <br />
+
+    <div style="text-align:center">
+        <input style="width: 120px" type="submit" value="Log In" class="btn btn-sm btn-outline-primary" />
+    </div>
+</form>
+
+
+

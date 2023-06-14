@@ -1,0 +1,35 @@
+﻿@model IEnumerable<FrancisPetShopMVC.Data.Entities.Animal>
+
+@{
+    ViewData["Title"] = "Home Page";      
+}
+<h1 style ="text-align:center">@ViewData["Title"]</h1>
+<div>Hello and welcome to the best Pet Shop ever! in my shop we have a veraity of many breeds of animals and also many exotic animals! </div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr style="font-size:35px">
+                <th>Image</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Description</th>
+                <th>Number of Comments</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table table-dark table-striped">
+                    <td>
+                        <img style="width: 200px ;height: 200px; object-fit: cover;" src="/Images/@item.ImageFileName" alt="Animal Image" class="animal-image">
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Description</td>
+                    <td>@item.Comments.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Animal>
+
+@{
+	ViewData["Title"] = "Catalog Page";
+}
+
+
+<h1 style="display: flex; justify-content: flex-start; align-items: center; flex-direction: column;">@ViewData["Title"]</h1>
+
+<head>
+</head>
+<div style="width: 280px; text-align: center;">
+	@Html.DropDownList("CategoryId", ViewBag.Categories as SelectList, "-- Select Category --", new { @class = "form-select" })
+	
+	<button style="align-self:center; width: 100px;" type="button" class="btn btn-sm btn-outline-primary" id="filterButton">Filter</button>
+</div>
+
+<div class="table-responsive">
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr style="font-size:35px">
+				<th>Image</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Description</th>
+				<th>Find out more and Comment!</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr style="" class="table table-dark table-striped">
+					<td>
+						<img style="width: 200px ;height: 200px; object-fit: cover;" src="/Images/@item.ImageFileName" alt="Animal Image" class="animal-image">
+					</td>
+					<td>@item.Name</td>
+					<td>@item.Age</td>
+					<td>@item.Description</td>					
+					<td>
+						<a href="@Url.Action("Details", new { id = item.AnimalId })" class="btn btn-sm btn-outline-primary">Pet Details</a>
+					</td>					
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+
+@section Scripts {
+	<script>
+		$(function () {
+			$('#filterButton').click(function () {
+				var categoryId = $('#CategoryId').val();
+				window.location.href = '/Animals?categoryId=' + categoryId;
+			});
+		});
+	</script>
+}
