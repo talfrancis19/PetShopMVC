@@ -10,16 +10,17 @@
 </head>
 <div style="width: 280px; text-align: center;">
     @Html.DropDownList("CategoryId", ViewBag.Categories as SelectList, "-- Select Category --", new { @class = "form-select" })
-    <button style="align-self:center; width: 100px" type="button" class="btn btn-sm btn-outline-primary" id="filterButton">Filter</button>
+    <button style="align-self:center; width: 280px" type="button" class="btn btn-sm btn-outline-primary" id="filterButton">Filter</button>
 </div>
 <div style="display: flex; justify-content: flex-start; align-items: center; flex-direction: column;">
-    <a href="@Url.Action("Create")" class="btn btn-sm btn-outline-primary">Add new pet</a>
+    <a style="width:300px; height:75px; margin-bottom:20px; font-size:30px" href="@Url.Action("Create")" class="btn btn-primary">Add new pet</a>
 </div>
+
     
 
 <div class="table-responsive">
     <table class="table table-striped table-hover">
-        <thead>
+        <thead class="table table-dark table-striped">
             <tr style="font-size:35px">
                 <th>Image</th>
                 <th>Name</th>

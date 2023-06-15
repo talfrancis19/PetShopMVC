@@ -9,15 +9,14 @@
 
 <head>
 </head>
-<div style="width: 280px; text-align: center;">
-	@Html.DropDownList("CategoryId", ViewBag.Categories as SelectList, "-- Select Category --", new { @class = "form-select" })
-	
-	<button style="align-self:center; width: 100px;" type="button" class="btn btn-sm btn-outline-primary" id="filterButton">Filter</button>
+<div style="width: 280px; text-align: center;">	
+	@Html.DropDownList("CategoryId", ViewBag.Categories as SelectList, "-- Select Category --", new { @class = "form-select" })		
+	<button style="align-self:center; width: 100px; " type="button" class="btn btn-sm btn-outline-primary" id="filterButton">Filter</button>
 </div>
 
 <div class="table-responsive">
 	<table class="table table-striped table-hover">
-		<thead>
+		<thead class="table table-dark table-striped">
 			<tr style="font-size:35px">
 				<th>Image</th>
 				<th>Name</th>
@@ -30,7 +29,7 @@
 		<tbody>
 			@foreach (var item in Model)
 			{
-				<tr style="" class="table table-dark table-striped">
+				<tr class="table table-dark table-striped">
 					<td>
 						<img style="width: 200px ;height: 200px; object-fit: cover;" src="/Images/@item.ImageFileName" alt="Animal Image" class="animal-image">
 					</td>
@@ -38,7 +37,9 @@
 					<td>@item.Age</td>
 					<td>@item.Description</td>					
 					<td>
-						<a href="@Url.Action("Details", new { id = item.AnimalId })" class="btn btn-sm btn-outline-primary">Pet Details</a>
+						<div style="text-align:center">
+							<a href="@Url.Action("Details", new { id = item.AnimalId })" class="btn btn-sm btn-outline-primary">Pet Details</a>
+						</div>
 					</td>					
 				</tr>
 			}

@@ -6,15 +6,15 @@
 <h1 style ="text-align:center">@ViewData["Title"]</h1>
 <div>Hello and welcome to the best Pet Shop ever! in my shop we have a veraity of many breeds of animals and also many exotic animals! </div>
 <div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
+    <table class="table table-striped table-hover">
+        <thead class="table table-dark table-striped">
             <tr style="font-size:35px">
                 <th>Image</th>
                 <th>Name</th>
                 <th>Age</th>
                 <th>Description</th>
                 <th>Number of Comments</th>
-                <th></th>
+                
             </tr>
         </thead>
         <tbody>
@@ -27,7 +27,7 @@
                     <td>@item.Name</td>
                     <td>@item.Age</td>
                     <td>@item.Description</td>
-                    <td>@item.Comments.Count</td>
+                    <td><div style="text-align:center">@item.Comments.Count</div></td>
                 </tr>
             }
         </tbody>

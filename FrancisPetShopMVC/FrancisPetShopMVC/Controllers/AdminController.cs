@@ -2,14 +2,12 @@
 using FrancisPetShopMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication;
-using System.Security.Claims;
+
+
 
 namespace FrancisPetShopMVC.Controllers
 {
-    [Authorize]
+    
     public class AdminController : Controller
     {
         private readonly IAnimalService _animalService;
@@ -50,7 +48,7 @@ namespace FrancisPetShopMVC.Controllers
         {
             if (username == "admin" && password == "admin")
             {
-               
+                return RedirectToAction("Index", "Admin");
             }
             else
             {
