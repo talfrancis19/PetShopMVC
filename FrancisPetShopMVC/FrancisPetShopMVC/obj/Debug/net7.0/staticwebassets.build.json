@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8OUAUvp1SBt5VAIniCczEEJLWHdtz6t1ZLGLZYPaiKw=",
+  "Hash": "G0KYqYrdwtK4HLeqnWK21lLDCMa6HczNjwcIP8PqHrA=",
   "Source": "FrancisPetShopMVC",
   "BasePath": "_content/FrancisPetShopMVC",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\91165af0-8f40-49fd-ad9f-0e305f2654cf_hotdog.gif"
+    },
+    {
+      "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\afc774b5-65e3-43d9-a0be-909462696022_Becky.jpg",
+      "SourceId": "FrancisPetShopMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\",
+      "BasePath": "_content/FrancisPetShopMVC",
+      "RelativePath": "Images/afc774b5-65e3-43d9-a0be-909462696022_Becky.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\afc774b5-65e3-43d9-a0be-909462696022_Becky.jpg"
     },
     {
       "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\bear.jpg",
