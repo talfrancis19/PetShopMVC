@@ -2,10 +2,14 @@
 using FrancisPetShopMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 
 namespace FrancisPetShopMVC.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly IAnimalService _animalService;
@@ -33,18 +37,20 @@ namespace FrancisPetShopMVC.Controllers
 
             return View(animals);
         }
+        
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
+        
         [HttpPost]
         [Route("Admin/Login")]
         public ActionResult Login(string username, string password)
         {
             if (username == "admin" && password == "admin")
             {
-                return RedirectToAction("Index", "Admin");
+               
             }
             else
             {
@@ -99,7 +105,7 @@ namespace FrancisPetShopMVC.Controllers
         public IActionResult Edit(Animal animal, IFormFile imageFile)
         {
             ViewBag.Categories = _categoryService.GetCategoryDropDownList();
-            if (imageFile != null )
+            if (imageFile != null)
             {
                 string uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
                 string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
