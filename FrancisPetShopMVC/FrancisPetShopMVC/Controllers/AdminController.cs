@@ -112,7 +112,7 @@ namespace FrancisPetShopMVC.Controllers
                 {
                     imageFile.CopyTo(fileStream);
                 }
-                // Set the ImageFileName property of the animal to the unique file name
+                
                 animal.ImageFileName = uniqueFileName;
                 _animalService.UpdateAnimal(animal);
                 return RedirectToAction("Index");

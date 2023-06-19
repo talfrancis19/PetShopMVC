@@ -22,7 +22,7 @@ namespace FrancisPetShopMVC
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<ICommentService, CommentService>();
             
-            var connectionString = builder.Configuration["ConnectionStrings:FrancisPetShopMVC"];
+            var connectionString = builder.Configuration["ConnectionStrings:DataBase"];
 
 
             builder.Services.AddDbContext<MyContext>(options => options.UseSqlServer(connectionString));

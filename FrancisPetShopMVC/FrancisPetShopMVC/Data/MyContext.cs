@@ -1,5 +1,4 @@
-﻿using FrancisPetShopMVC.Data;
-using FrancisPetShopMVC.Data.Entities;
+﻿using FrancisPetShopMVC.Data.Entities;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;

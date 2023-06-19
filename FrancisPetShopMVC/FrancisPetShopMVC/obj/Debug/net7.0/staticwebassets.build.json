@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G0KYqYrdwtK4HLeqnWK21lLDCMa6HczNjwcIP8PqHrA=",
+  "Hash": "eqZFnmatX/muzAHMEa+ucYoHHygavPUKkAqGs4Dgl6s=",
   "Source": "FrancisPetShopMVC",
   "BasePath": "_content/FrancisPetShopMVC",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\5e5139e5-0f2a-4132-98de-c3cdf3caeb16_bear.jpg",
+      "SourceId": "FrancisPetShopMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\",
+      "BasePath": "_content/FrancisPetShopMVC",
+      "RelativePath": "Images/5e5139e5-0f2a-4132-98de-c3cdf3caeb16_bear.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\5e5139e5-0f2a-4132-98de-c3cdf3caeb16_bear.jpg"
     },
     {
       "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\8183a4bc-6ac2-41db-a201-1760559ac328_Computer-Nerd.jpg",
@@ -287,6 +304,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\f0552fb0-bb11-441b-9f62-a61dc13be008_hotdog.gif"
+    },
+    {
+      "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\faa1f431-b063-4b5e-bce8-3453a1b2a898_458ca763-5657-418b-a80d-4ed536151e07.jpg",
+      "SourceId": "FrancisPetShopMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\",
+      "BasePath": "_content/FrancisPetShopMVC",
+      "RelativePath": "Images/faa1f431-b063-4b5e-bce8-3453a1b2a898_458ca763-5657-418b-a80d-4ed536151e07.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\faa1f431-b063-4b5e-bce8-3453a1b2a898_458ca763-5657-418b-a80d-4ed536151e07.jpg"
     },
     {
       "Identity": "C:\\Users\\sahar\\Desktop\\שיעורים ועבודות מכללת סלע\\PetShopMVCFixed\\FrancisPetShopMVC\\FrancisPetShopMVC\\wwwroot\\Images\\fishKiss.jpg",

@@ -1,5 +1,5 @@
 ﻿using FirstMvc.Data;
-using FrancisPetShopMVC.Data;
+using FrancisPetShopMVC.Data.Entities;
 using FrancisPetShopMVC.Services.Interfaces;
 
 namespace FrancisPetShopMVC.Services

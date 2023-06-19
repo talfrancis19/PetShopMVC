@@ -10,7 +10,7 @@
 </head>
 <div style="width: 280px; text-align: center;">
     @Html.DropDownList("CategoryId", ViewBag.Categories as SelectList, "-- Select Category --", new { @class = "form-select" })
-    <button style="align-self:center; width: 280px" type="button" class="btn btn-sm btn-outline-primary" id="filterButton">Filter</button>
+    <button style="align-self:center; width: 280px; height:50px" type="button" class="btn btn-sm btn-outline-primary" id="filterButton">Filter</button>
 </div>
 <div style="display: flex; justify-content: flex-start; align-items: center; flex-direction: column;">
     <a style="width:300px; height:75px; margin-bottom:20px; font-size:30px" href="@Url.Action("Create")" class="btn btn-primary">Add new pet</a>

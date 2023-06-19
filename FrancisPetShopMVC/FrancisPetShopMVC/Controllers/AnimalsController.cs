@@ -68,7 +68,7 @@ namespace FrancisPetShopMVC.Controllers
 
             return Json(new { success = true });
         }
-
+        [HttpGet]
         public IActionResult Create()
         {
             return View();

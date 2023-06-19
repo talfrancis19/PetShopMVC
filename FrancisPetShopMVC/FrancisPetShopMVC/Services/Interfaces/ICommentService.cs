@@ -1,4 +1,4 @@
-﻿using FrancisPetShopMVC.Data;
+﻿using FrancisPetShopMVC.Data.Entities;
 
 namespace FrancisPetShopMVC.Services.Interfaces
 {
