@@ -14,28 +14,13 @@ namespace FrancisPetShopMVC
 		public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
+            
             builder.Services.AddControllersWithViews();
-
             builder.Services.AddScoped<IAnimalService, AnimalService>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
-            builder.Services.AddScoped<ICommentService, CommentService>();
-            
+            builder.Services.AddScoped<ICommentService, CommentService>();                               
             var connectionString = builder.Configuration["ConnectionStrings:DataBase"];
-
-
             builder.Services.AddDbContext<MyContext>(options => options.UseSqlServer(connectionString));
-
-
-
-
-
-
-
-
-
-
 
 
             var app = builder.Build();
@@ -46,22 +31,14 @@ namespace FrancisPetShopMVC
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
 			//To use images(static file)
 			app.UseStaticFiles();
-
 			app.UseRouting();
-
             app.UseAuthorization();
-
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-           
-
-
-
+                pattern: "{controller=Home}/{action=Index}/{id?}");         
             app.Run();
         }
     }

@@ -2,18 +2,20 @@
 using FrancisPetShopMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
-
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using System.Linq;
+using System;
 
 namespace FrancisPetShopMVC.Controllers
 {
-    
     public class AdminController : Controller
     {
         private readonly IAnimalService _animalService;
         private readonly ICategoryService _categoryService;
         private readonly ICommentService _commentService;
         private readonly IWebHostEnvironment _webHostEnvironment;
+
         public AdminController(IAnimalService animalService, ICategoryService categoryService, ICommentService commentService, IWebHostEnvironment webHostEnvironment)
         {
             _animalService = animalService;
@@ -35,13 +37,13 @@ namespace FrancisPetShopMVC.Controllers
 
             return View(animals);
         }
-        
+
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
-        
+
         [HttpPost]
         [Route("Admin/Login")]
         public ActionResult Login(string username, string password)
@@ -56,41 +58,37 @@ namespace FrancisPetShopMVC.Controllers
                 return View();
             }
         }
-        // GET: AdminController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
         // GET: AdminController/Create
+        [HttpGet]
         public ActionResult Create()
         {
             ViewBag.Categories = _categoryService.GetCategoryDropDownList();
             return View();
         }
+
         // POST: AdminController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public IActionResult Create(Animal animal, IFormFile imageFile)
         {
             if (imageFile != null)
-            {                
-                string uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;                
-                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");               
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);              
+            {
+                string uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     imageFile.CopyTo(fileStream);
-                }                
+                }
                 animal.ImageFileName = uniqueFileName;
                 _animalService.AddAnimal(animal);
                 return RedirectToAction("Index");
-            }
-            // If the model state is not valid, return the view with the validation errors
+            }           
             ViewBag.Categories = _categoryService.GetCategoryDropDownList();
             return View(animal);
         }
         // GET: AdminController/Edit/5
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var animal = _animalService.GetAnimalById(id);
@@ -112,14 +110,15 @@ namespace FrancisPetShopMVC.Controllers
                 {
                     imageFile.CopyTo(fileStream);
                 }
-                
                 animal.ImageFileName = uniqueFileName;
                 _animalService.UpdateAnimal(animal);
                 return RedirectToAction("Index");
-            }                       
+            }
             return View(animal);
         }
+
         // GET: AdminController/Delete/5
+        [HttpGet]
         public IActionResult Delete(int id)
         {
             var animal = _animalService.GetAnimalById(id);
@@ -127,10 +126,11 @@ namespace FrancisPetShopMVC.Controllers
             ViewData["categoryName"] = category.Name;
             return View(animal);
         }
+
         // POST: AdminController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id, IFormCollection collection)
+        public IActionResult DeleteConfirmed(int id)
         {
             try
             {

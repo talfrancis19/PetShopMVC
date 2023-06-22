@@ -14,24 +14,18 @@ namespace FrancisPetShopMVC.Controllers
         private readonly IAnimalService _animalService;
         private readonly ICategoryService _categoryService;
         private readonly ICommentService _commentService;
-        // To Get relative path we need this interface
-        
-
         public AnimalsController(IAnimalService animalService, ICategoryService categoryService, ICommentService commentService)
         {
             _animalService = animalService;
             _categoryService = categoryService;
             _commentService = commentService;
-            
         }
         // GET: AnimalsController
-
         [HttpGet]
         public IActionResult Index(int? categoryId)
         {
             ViewBag.Categories = _categoryService.GetCategoryDropDownList();
             var animals = _animalService.GetAllAnimals();
-
             if (categoryId.HasValue)
             {
                 animals = animals.Where(a => a.CategoryId == categoryId.Value);
@@ -45,11 +39,13 @@ namespace FrancisPetShopMVC.Controllers
         [HttpGet("{id:int:min(1)}")]
         public IActionResult Details(int id)
         {
-       
+
             var animal = _animalService.GetAnimalById(id);
+            if (animal == null)
+                return NotFound();
             var category = _categoryService.GetCategoryById(animal.CategoryId);
             var comments = _commentService.GetComments(id);
-          
+
             ViewData["categoryName"] = category.Name;
             ViewData["Comments"] = comments;
             return View(animal);
@@ -62,74 +58,8 @@ namespace FrancisPetShopMVC.Controllers
             if (animal == null)
                 return BadRequest($"No Animal with id = {id}");
 
-            _commentService.AddComment(animal.AnimalId,commentText);
-
-            // Save the changes to the database here (if using a database)
-
+            _commentService.AddComment(animal.AnimalId, commentText);           
             return Json(new { success = true });
-        }
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: AnimalsController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: AnimalsController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: AnimalsController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: AnimalsController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            
-            return View();
-        }
-
-        // POST: AnimalsController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        } 
     }
 }
